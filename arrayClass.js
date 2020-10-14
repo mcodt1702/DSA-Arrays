@@ -68,17 +68,54 @@ class Array {
     );
     this.length--;
   }
+
+  urlify(string) {
+    const newString = string.split(" ").join("%20");
+
+    return newString;
+  }
+  filtering(array) {
+    const newArray = [];
+    array.forEach((num) => {
+      if (num > 5) {
+        newArray.push(num);
+      }
+    });
+    return newArray;
+  }
+
+  maxSum(array) {
+    let maxSumNum = 0;
+    let adding = 0;
+    for (let i = 0; i < array.length; i++) {
+      adding += array[i];
+
+      if (adding > maxSumNum) {
+        maxSumNum = adding;
+      }
+    }
+
+    return maxSumNum;
+  }
 }
 Array.SIZE_RATIO = 3;
 
 arr = new Array();
 
-console.log("MY ARRAY", arr);
-arr.push("je");
-arr.push("je");
-console.log("MY ARRAY", arr);
-arr.get(1);
-arr.push("first");
-arr.push("seconde");
-arr.push("last");
-console.log(arr.get(1));
+// console.log("MY ARRAY", arr);
+
+// arr.push(5);
+// arr.push(15);
+// console.log(arr.get(1));
+// console.log("MY ARRAY", arr);
+// arr.remove(0);
+// arr.remove(0);
+// console.log("MY ARRAY", arr);
+
+// arr.push("tauhida");
+// console.log("MY ARRAY", arr);
+// console.log(arr.get(0));
+
+//console.log(arr.urlify("www.thinkful.com /tauh ida parv een"));
+//console.log(arr.filtering([2, 7, 5, 2, 8]));
+console.log(arr.maxSum([4, 6, -3, 5, -2, 1]));
